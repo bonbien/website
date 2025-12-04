@@ -1,18 +1,25 @@
-export const nav = [
-	{
-		title: 'Home',
-		slug: '/',
-	},
-	{
-		title: 'Blog',
-		slug: '/blog',
-	},
-	{
-		title: 'About',
-		slug: '/company/about',
-	},
-	{
-		title: 'Contact',
-		slug: '/company/contact',
-	},
-];
+import { ui } from '../i18n/ui.js';
+
+export const getNav = (lang = 'en') => {
+	const t = (key) => ui[lang]?.[key] || ui['en'][key];
+	const prefix = lang === 'en' ? '' : `/${lang}`;
+
+	return [
+		{
+			title: t('nav.home'),
+			slug: prefix === '' ? '/' : prefix,
+		},
+		{
+			title: t('nav.menu'),
+			slug: `${prefix}/menu`,
+		},
+		{
+			title: t('nav.about'),
+			slug: `${prefix}/#about`,
+		},
+		{
+			title: t('nav.contact'),
+			slug: `${prefix}/#contact`,
+		},
+	];
+};

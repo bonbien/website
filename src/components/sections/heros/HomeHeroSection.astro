@@ -1,79 +1,94 @@
 ---
-import { Icon } from 'astro-icon/components';
 import { Container, Button } from '@components/odyssey-theme';
-import settings from '../../../config/settings.js';
-import {ThemeSwitcher} from '../../theme-switcher/theme-switcher';
+import { Icon } from 'astro-icon/components';
+import { Fragment } from 'astro/jsx-runtime';
 ---
 
-<Container>
-	<section class="hero-section__section">
-		<div class="hero-section__text">
-				<h1>Welcome to Odyssey</h1>
-				<p>
-					A marketing website theme built with <a
-						href="https://astro.build"
-						target="_blank"
-						rel="noreferrer">Astro</a
-					> and carefully crafted for startups and businesses.
-				</p>
-				<div class="hero-btns__container">
-					<Button href="/theme/get-started" customIcon
-						>Get Started
-            <Fragment slot="icon">
-              <Icon name="ic:baseline-chevron-right"/>
-            </Fragment>
-            </Button
-					>
-					<Button href="/theme/style-guide" unelevated>Style Guide</Button>
+<section class="hero-section">
+	<div class="hero-section__image">
+		<img
+			src="/assets/images/home/ocean-hero.jpg"
+			alt="Bonbien 해산물 식당"
+			id="home-hero-image"
+		/>
+		<div class="hero-section__overlay">
+			<Container>
+				<div class="hero-section__content">
+					<h1 class="hero-section__title">Bonbien</h1>
+					<p class="hero-section__subtitle">
+						나트랑 깜란의 신선한 해산물
+					</p>
 				</div>
-        {settings.enableThemeSwitcher && <ThemeSwitcher client:only/>}
+			</Container>
 		</div>
-		<div class="hero-section__image">
-				<picture>
-					<img
-						src="/assets/images/home/classic-hero.jpg"
-						alt="Astro Odyssey"
-						id="home-hero-image"
-					/>
-				</picture>
-		</div>
-	</section>
-</Container>
+	</div>
+</section>
 
 <style>
-	.hero-section__section {
-		margin: var(--section-margin) auto;
-		min-height: clamp(90vh, 100vw, calc(100vh - var(--navbar-height)));
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		align-items: center;
-		gap: 1rem;
+	.hero-section {
+		position: relative;
+		width: 100%;
+		height: 70vh;
+		min-height: 500px;
+		overflow: hidden;
 	}
-	.hero-section__text {
-		justify-self: center;
-		max-width: 25rem;
-	}
-	.hero-btns__container {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-	}
-	.hero-btns__container {
-		margin-right: 1rem;
-	}
+	
 	.hero-section__image {
-		display: flex;
+		width: 100%;
+		height: 100%;
+		position: relative;
 	}
+	
 	.hero-section__image img {
 		width: 100%;
 		height: 100%;
-		max-height: 80vh;
 		object-fit: cover;
-		border-radius: var(--theme-shape-radius);
 	}
+	
+	.hero-section__overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(
+			to bottom,
+			rgba(0, 0, 0, 0.3) 0%,
+			rgba(0, 0, 0, 0.1) 50%,
+			rgba(0, 0, 0, 0.4) 100%
+		);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	
+	.hero-section__content {
+		text-align: center;
+		color: white;
+		z-index: 1;
+	}
+	
+	.hero-section__title {
+		font-size: clamp(3rem, 8vw, 6rem);
+		font-weight: 700;
+		margin-bottom: 1rem;
+		color: white;
+		line-height: 1.1;
+		text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+	}
+	
+	.hero-section__subtitle {
+		font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+		line-height: 1.4;
+		color: white;
+		opacity: 0.95;
+		text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+	}
+	
 	@media (max-width: 768px) {
-		.hero-section__section {
-			grid-template-columns: 1fr;
+		.hero-section {
+			height: 60vh;
+			min-height: 400px;
 		}
 	}
 </style>

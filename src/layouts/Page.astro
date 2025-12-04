@@ -3,17 +3,21 @@ import { Header, Button, Footer } from '@components/odyssey-theme';
 import Layout from './Base.astro';
 import type { Props as BaseHeadProps } from '../components/head/BaseHead.astro';
 import Logo from '../components/Logo.astro';
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import settings from '../config/settings';
-import { footerLists, footerSocials } from '../config/footer';
-
+import { getFooterLists, footerSocials } from '../config/footer';
+import { getLangFromUrl } from '../i18n/utils';
 
 export interface Props {
 	seo?: BaseHeadProps;
 }
 
-import { nav } from '../config/nav.js';
+import { getNav } from '../config/nav.js';
 
 const { seo } = Astro.props as Props;
+const lang = getLangFromUrl(Astro.url);
+const nav = getNav(lang);
+const footerLists = getFooterLists(lang);
 ---
 
 <Layout seo={seo}>
@@ -21,7 +25,9 @@ const { seo } = Astro.props as Props;
 		<span slot="logo">
 			<Logo />
 		</span>
-		<Button slot="action-item" href="/theme/get-started">Get Started</Button>
+		<span slot="action-item">
+			<LanguageSwitcher />
+		</span>
 	</Header>
 	<div id="page">
 		<slot />

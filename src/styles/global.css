@@ -8,6 +8,9 @@ body {
 	margin: 0 auto;
 	background-color: var(--theme-bg);
 	position: relative;
+	word-break: keep-all;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
 }
 
 pre {

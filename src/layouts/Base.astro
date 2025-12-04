@@ -2,15 +2,23 @@
 import { SkipLink } from '@components/odyssey-theme';
 import BaseHead from '../components/head/BaseHead.astro';
 import type { Props as BaseHeadProps } from '../components/head/BaseHead.astro';
+import { getLangFromUrl } from '../i18n/utils';
 
 export interface Props {
 	seo?: BaseHeadProps;
 }
 
 const { seo } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const langMap = {
+	ko: 'ko',
+	en: 'en',
+	vi: 'vi',
+	ru: 'ru'
+};
 ---
 
-<html lang="en">
+<html lang={langMap[lang]}>
 	<head>
 		<BaseHead {...seo} />
 	</head>

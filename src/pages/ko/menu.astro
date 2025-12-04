@@ -1,0 +1,1452 @@
+---
+import { Container } from '@components/odyssey-theme';
+import Layout from '../../layouts/Page.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const t = useTranslations('ko');
+
+const seo = {
+	title: `${t('menu.page.title')} - ${t('seo.title')}`,
+	description: t('seo.description'),
+};
+---
+
+<Layout seo={seo}>
+	<Container>
+		<section class="menu-page">
+			<h1 class="menu-page__title scroll-animate">{t('menu.page.title')}</h1>
+
+			<!-- 향토 음식 Section -->
+			<div class="menu-category scroll-animate">
+				<h2 class="menu-category__title">{t('menu.category.local')}</h2>
+				<div class="menu-items">
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="해파리 액젓 소스" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">해파리 액젓 소스</h3>
+									<span class="menu-item__price">₩89,000</span>
+							</div>
+							<p class="menu-item__description">Jellyfish with fish sauce</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="성게죽" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">성게죽</h3>
+									<span class="menu-item__price">₩89,000</span>
+							</div>
+							<p class="menu-item__description">Sea urchin porridge</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="생 왕새우 액젓 소스" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">생 왕새우 액젓 소스</h3>
+									<span class="menu-item__price">₩69,000/100gr (최소 300gr 주문)</span>
+							</div>
+							<p class="menu-item__description">Raw Tiger Prawn with Fish Sauce</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="성게 달걀튀김" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">성게 달걀튀김</h3>
+									<span class="menu-item__price">₩79,000</span>
+							</div>
+							<p class="menu-item__description">Fried sea urchin with egg</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="성게구이 파와 땅콩" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">성게구이 파와 땅콩</h3>
+									<span class="menu-item__price">₩79,000/개</span>
+							</div>
+							<p class="menu-item__description">Grilled sea urchin with scallion and peanuts</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="칠리소금을 곁들인 구운 날치" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">칠리소금을 곁들인 구운 날치</h3>
+									<span class="menu-item__price">₩199,000</span>
+							</div>
+							<p class="menu-item__description">Grilled flying gurnard with chili salt</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- 에피타이저 Section -->
+			<div class="menu-category scroll-animate">
+				<h2 class="menu-category__title">{t('menu.category.appetizer')}</h2>
+				<div class="menu-items">
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="감자 튀김" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">감자 튀김</h3>
+									<span class="menu-item__price">₩59,000</span>
+							</div>
+							<p class="menu-item__description">French fries</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="바다 포도 샐러드" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">바다 포도 샐러드</h3>
+									<span class="menu-item__price">₩89,000</span>
+							</div>
+							<p class="menu-item__description">Sea grapes salad with seafood</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="참치 샐러드" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">참치 샐러드</h3>
+									<span class="menu-item__price">₩89,000</span>
+							</div>
+							<p class="menu-item__description">Tuna salad</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="해산물 스프링롤" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">해산물 스프링롤</h3>
+									<span class="menu-item__price">₩89,000</span>
+							</div>
+							<p class="menu-item__description">Seafood spring rolls</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="그린 바나나와 해파리 샐러드" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">그린 바나나와 해파리 샐러드</h3>
+									<span class="menu-item__price">₩89,000</span>
+							</div>
+							<p class="menu-item__description">Jellyfish with green banana salad</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="태국식 해산물 샐러드" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">태국식 해산물 샐러드</h3>
+									<span class="menu-item__price">₩89,000</span>
+							</div>
+							<p class="menu-item__description">Thailand style seafood salad</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="아삭한 버섯과 해산물 샐러드" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">아삭한 버섯과 해산물 샐러드</h3>
+									<span class="menu-item__price">₩89,000</span>
+							</div>
+							<p class="menu-item__description">Crunchy mushroom with seafood salad</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="매운 오징어 샐러드" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">매운 오징어 샐러드</h3>
+									<span class="menu-item__price">₩89,000</span>
+							</div>
+							<p class="menu-item__description">Spicy Squid salad</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="자몽과 해산물 샐러드" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">자몽과 해산물 샐러드</h3>
+									<span class="menu-item__price">₩89,000</span>
+							</div>
+							<p class="menu-item__description">Pomelo salad with seafood</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="페퍼로미아 샐러드" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">페퍼로미아 샐러드</h3>
+									<span class="menu-item__price">₩89,000</span>
+							</div>
+							<p class="menu-item__description">Pepper elder salad with seafood</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="무화과와 해산물 샐러드" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">무화과와 해산물 샐러드</h3>
+									<span class="menu-item__price">₩89,000</span>
+							</div>
+							<p class="menu-item__description">Local figs salad with seafood</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Razor Clam Section -->
+			<div class="menu-category scroll-animate">
+				<h2 class="menu-category__title">{t('menu.category.razorclam')}</h2>
+				<div class="menu-items">
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/razor-clams.png" alt="매콤한 맛조개 볶음" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">매콤한 맛조개 볶음</h3>
+									<span class="menu-item__price">₩89,000</span>
+							</div>
+							<p class="menu-item__description">Stir-fried with chilli</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/razor-clams.png" alt="맛조개와 공심채 볶음" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">맛조개와 공심채 볶음</h3>
+									<span class="menu-item__price">₩89,000</span>
+							</div>
+							<p class="menu-item__description">Stir-fried with morning glory</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- 채소 Section -->
+			<div class="menu-category scroll-animate">
+				<h2 class="menu-category__title">{t('menu.category.vegetable')}</h2>
+				<div class="menu-items">
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="삶은 야채" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">삶은 야채</h3>
+									<span class="menu-item__price">₩49,000</span>
+							</div>
+							<p class="menu-item__description">Boiled Vegetable</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="산나물 볶음" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">산나물 볶음</h3>
+									<span class="menu-item__price">₩79,000</span>
+							</div>
+							<p class="menu-item__description">Stir-fried jungle vegetable</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="청경채 마늘 볶음" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">청경채 마늘 볶음</h3>
+									<span class="menu-item__price">₩49,000</span>
+							</div>
+							<p class="menu-item__description">Stir-fried bok choy with garlic</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="청경채 굴소스 볶음" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">청경채 굴소스 볶음</h3>
+									<span class="menu-item__price">₩49,000</span>
+							</div>
+							<p class="menu-item__description">Stir-fried bok choy with oyster sauce</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="공심채 볶음" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">공심채 볶음</h3>
+									<span class="menu-item__price">₩49,000</span>
+							</div>
+							<p class="menu-item__description">Stir-fried morning glory with garlic</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- 수프 Section -->
+			<div class="menu-category scroll-animate">
+				<h2 class="menu-category__title">{t('menu.category.soup')}</h2>
+				<div class="menu-items">
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="해산물 야채 수프" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">해산물 야채 수프</h3>
+									<span class="menu-item__price">₩89,000</span>
+							</div>
+							<p class="menu-item__description">Vegetable soup with seafood</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="아스파라거스와 게 수프" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">아스파라거스와 게 수프</h3>
+									<span class="menu-item__price">₩89,000</span>
+							</div>
+							<p class="menu-item__description">Asparagus and crab soup</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- 굴 Section -->
+			<div class="menu-category scroll-animate">
+				<h2 class="menu-category__title">{t('menu.category.oyster')}</h2>
+				<div class="menu-items">
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="파기름 구이" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">파기름 구이</h3>
+									<span class="menu-item__price">₩90,000</span>
+							</div>
+							<p class="menu-item__description">Grill with scallion and peanut sauce</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="회" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">회</h3>
+									<span class="menu-item__price">₩110,000</span>
+							</div>
+							<p class="menu-item__description">Raw</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="치즈 구이" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">치즈 구이</h3>
+									<span class="menu-item__price">₩110,000</span>
+							</div>
+							<p class="menu-item__description">Grilled with cheese sauce</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- 왕새우 Section -->
+			<div class="menu-category scroll-animate">
+				<h2 class="menu-category__title">{t('menu.category.prawn')}</h2>
+				<div class="menu-items">
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="회" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">회</h3>
+									<span class="menu-item__price">₩69,000/100gr</span>
+							</div>
+							<p class="menu-item__description">Raw</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="찜" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">찜</h3>
+									<span class="menu-item__price">₩69,000/100gr</span>
+							</div>
+							<p class="menu-item__description">Steamed</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="구이" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">구이</h3>
+									<span class="menu-item__price">₩69,000/100gr</span>
+							</div>
+							<p class="menu-item__description">Grilled</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="계란소금 소스" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">계란소금 소스</h3>
+									<span class="menu-item__price">₩69,000/100gr</span>
+							</div>
+							<p class="menu-item__description">Salted egg yolk sauce</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="마늘 버터 소스" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">마늘 버터 소스</h3>
+									<span class="menu-item__price">₩69,000/100gr</span>
+							</div>
+							<p class="menu-item__description">Garlic and butter</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="마늘 볶음" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">마늘 볶음</h3>
+									<span class="menu-item__price">₩69,000/100gr</span>
+							</div>
+							<p class="menu-item__description">Fried with garlic</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="타마린드 소스" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">타마린드 소스</h3>
+									<span class="menu-item__price">₩69,000/100gr</span>
+							</div>
+							<p class="menu-item__description">Tamarind sauce</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="소금볶음" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">소금볶음</h3>
+									<span class="menu-item__price">₩69,000/100gr</span>
+							</div>
+							<p class="menu-item__description">Fried with salt</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="칠리 소스" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">칠리 소스</h3>
+									<span class="menu-item__price">₩69,000/100gr</span>
+							</div>
+							<p class="menu-item__description">Sweet and sour sauce</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="검은 후추 소스" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">검은 후추 소스</h3>
+									<span class="menu-item__price">₩69,000/100gr</span>
+							</div>
+							<p class="menu-item__description">Black pepper sauce</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- 오징어 Section -->
+			<div class="menu-category scroll-animate">
+				<h2 class="menu-category__title">{t('menu.category.squid')}</h2>
+				<div class="menu-items">
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="튀김" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">튀김</h3>
+									<span class="menu-item__price">₩180,000</span>
+							</div>
+							<p class="menu-item__description">Crispy fried</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="구이" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">구이</h3>
+									<span class="menu-item__price">₩180,000</span>
+							</div>
+							<p class="menu-item__description">Grilled</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="찜" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">찜</h3>
+									<span class="menu-item__price">₩180,000</span>
+							</div>
+							<p class="menu-item__description">Steamed</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- 음료/주류 Section -->
+			<div class="menu-category scroll-animate">
+				<h2 class="menu-category__title">{t('menu.category.beverage')}</h2>
+				<div class="menu-items">
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="Aquafina" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">Aquafina</h3>
+									<span class="menu-item__price">₩10,000</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="Pepsi" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">Pepsi</h3>
+									<span class="menu-item__price">₩18,000</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="Saigon Lager" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">Saigon Lager</h3>
+									<span class="menu-item__price">₩14,000</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="Heineken" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">Heineken</h3>
+									<span class="menu-item__price">₩25,000</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="Soju" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">Soju</h3>
+									<span class="menu-item__price">₩100,000</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- 추가 요리 Section -->
+			<div class="menu-category scroll-animate">
+				<h2 class="menu-category__title">{t('menu.category.additional')}</h2>
+				<div class="menu-items">
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="흰밥" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">흰밥</h3>
+									<span class="menu-item__price">₩15,000</span>
+							</div>
+							<p class="menu-item__description">White Rice</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="면" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">면</h3>
+									<span class="menu-item__price">₩10,000</span>
+							</div>
+							<p class="menu-item__description">Noodles</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="김치" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">김치</h3>
+									<span class="menu-item__price">₩20,000</span>
+							</div>
+							<p class="menu-item__description">Kimchi</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- COLD Section -->
+			<div class="menu-category scroll-animate">
+				<h2 class="menu-category__title">{t('menu.category.cold')}</h2>
+				<div class="menu-items">
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="해산물 타워" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">해산물 타워*</h3>
+									<span class="menu-item__price">₩90,000 / ₩125,000</span>
+							</div>
+							<p class="menu-item__description">
+								<strong>THE PETITE (2-4인)</strong> ₩90,000<br>
+								굴 6개, 훈제 참치 딥 + 크로스티니, 멕시코 새우 4개, 카르파초, 아과칠레 + 칩스<br><br>
+								<strong>THE GRAND (4-6인)</strong> ₩125,000<br>
+								굴 12개, 훈제 참치 딥 + 크로스티니, 멕시코 새우 6개, 아히 포케, 카르파초, 아과칠레 + 칩스
+							</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="반쪼가리 굴" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">반쪼가리 굴*</h3>
+									<span class="menu-item__price">₩26,000 / ₩52,000</span>
+							</div>
+							<p class="menu-item__description">미뇨네트, 고추냉이, 레몬</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="멕시코 새우 칵테일" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">멕시코 새우 칵테일</h3>
+									<span class="menu-item__price">₩22,000</span>
+							</div>
+							<p class="menu-item__description">칵테일 소스, 루이 드레싱, 레몬</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="아과칠레" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">아과칠레*</h3>
+									<span class="menu-item__price">₩21,000</span>
+							</div>
+							<p class="menu-item__description">피코 데 갈로, 실란트로, 세라노, 무, 라임, 아보카도, 토르티야 칩스</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="포케" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">포케*</h3>
+									<span class="menu-item__price">₩21,000</span>
+							</div>
+							<p class="menu-item__description">아히, 아보카도, 무, 파, 김, 오이, 참깨 폰즈, 와사비 마요<br>+ 보울로 변경 ₩3,000 추가</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="카르파초" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">카르파초*</h3>
+									<span class="menu-item__price">₩28,000</span>
+							</div>
+							<p class="menu-item__description">블루핀, 샬롯, 케이퍼, 레몬 오일</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="테마키 핸드롤" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">테마키 핸드롤*</h3>
+									<span class="menu-item__price">₩26,000</span>
+							</div>
+							<p class="menu-item__description">블루핀, 새싹, 오이</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="알바코어 타타키" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">알바코어 타타키*</h3>
+									<span class="menu-item__price">₩22,000</span>
+							</div>
+							<p class="menu-item__description">구운 마늘, 유자 고쇼, 할라피뇨, 실란트로</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="훈제 알바코어 딥" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">훈제 알바코어 딥</h3>
+									<span class="menu-item__price">₩22,000</span>
+							</div>
+							<p class="menu-item__description">마이어 레몬 아이오리, 절인 샬롯, 체빌</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- SOUPS + SALADS Section -->
+			<div class="menu-category scroll-animate">
+				<h2 class="menu-category__title">{t('menu.category.soupsalad')}</h2>
+				<div class="menu-items">
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="메뉴" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">조개 차우더</h3>
+									<span class="menu-item__price">₩13,000</span>
+							</div>
+							<p class="menu-item__description">리틀넥 조개, 감자, 셀러리, 베이컨 + 크림, 바삭한 감자<br>+ 차우더 프라이로 변경 ₩7,000 추가</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="메뉴" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">피셔리 수프</h3>
+									<span class="menu-item__price">₩12,000</span>
+							</div>
+							<p class="menu-item__description">시장 생선 + 지중해 육수, 튀긴 병아리콩</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="메뉴" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">시저 샐러드</h3>
+									<span class="menu-item__price">₩15,000</span>
+							</div>
+							<p class="menu-item__description">리틀 젬, 파마산, 바삭한 감자, 멸치</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="메뉴" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">시장 상추</h3>
+									<span class="menu-item__price">₩14,000</span>
+							</div>
+							<p class="menu-item__description">허브, 캄파리 토마토, 바뉼 비네그레트<br>* 블루치즈 추가 ₩1,500<br>+ 새우 ₩10,000 / 연어 ₩18,000 추가</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- HOT Section -->
+			<div class="menu-category scroll-animate">
+				<h2 class="menu-category__title">{t('menu.category.hot')}</h2>
+				<div class="menu-items">
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="크랩 케이크" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">크랩 케이크</h3>
+									<span class="menu-item__price">₩25,000</span>
+							</div>
+							<p class="menu-item__description">페르시안 오이, 허브 샐러드, 토마토 비네그레트</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="오징어 튀김" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">오징어 튀김</h3>
+									<span class="menu-item__price">₩19,000</span>
+							</div>
+							<p class="menu-item__description">미국산 오징어, 매콤한 아이오리, 레몬</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="리틀넥 조개" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">리틀넥 조개</h3>
+									<span class="menu-item__price">₩22,000</span>
+							</div>
+							<p class="menu-item__description">화이트 와인, 타임, 마늘, 칠리 플레이크<br>+ 집에서 만든 링귀네 추가 ₩10,000</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="솔트스프링 홍합" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">솔트스프링 홍합</h3>
+									<span class="menu-item__price">₩22,000</span>
+							</div>
+							<p class="menu-item__description">그린 커리, 바질, 실란트로, 라임, 웨이파러 사워도우</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="로컬 샌드 댑" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">로컬 샌드 댑</h3>
+									<span class="menu-item__price">₩24,000</span>
+							</div>
+							<p class="menu-item__description">케이퍼, 파슬리, 레몬</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- FISH Section -->
+			<div class="menu-category scroll-animate">
+				<h2 class="menu-category__title">{t('menu.category.fish')}</h2>
+				<div class="menu-items">
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="메뉴" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">셰프의 추천</h3>
+									<span class="menu-item__price">₩30,000</span>
+							</div>
+							<p class="menu-item__description">시금치 파르팔레, 브로콜리 페스토, 표고 버섯</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="메뉴" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">알바코어 참치 샐러드 샌드위치</h3>
+									<span class="menu-item__price">₩17,000</span>
+							</div>
+							<p class="menu-item__description">오레곤 알바코어, 타르타르, 상추, 토마토, 사워도우</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="알바코어 참치 멜트" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">알바코어 참치 멜트</h3>
+									<span class="menu-item__price">₩17,000</span>
+							</div>
+							<p class="menu-item__description">잭 치즈, 사워도우</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="메뉴" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">오늘의 생선 샌드위치</h3>
+								<span class="menu-item__price">₩17,000</span>
+							</div>
+							<p class="menu-item__description">아루굴라, 토마토, 타르타르, 브리오슈 번</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="아히 '스매시' 버거" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">아히 '스매시' 버거</h3>
+								<span class="menu-item__price">₩23,000</span>
+							</div>
+							<p class="menu-item__description">상추, 토마토, 잭 치즈, 절인 양파, 시크릿 소스, 브리오슈 번</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="알바코어 벨리 부리토" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">알바코어 벨리 부리토</h3>
+								<span class="menu-item__price">₩18,000</span>
+							</div>
+							<p class="menu-item__description">양배추, 피코 데 갈로, 잭 치즈, 하리사 크레마, 아보카도, 칩스 + 살사</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="바하 생선 타코" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">바하 생선 타코</h3>
+								<span class="menu-item__price">₩19,000</span>
+							</div>
+							<p class="menu-item__description">바삭한 맥주 튀김 가다랑어, 양배추, 피코 데 갈로, 코티자, 크레마, 실란트로, 라임, 칩스 + 살사</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="알래스카 넙치 & 칩스" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">알래스카 넙치 & 칩스</h3>
+								<span class="menu-item__price">₩29,000</span>
+							</div>
+							<p class="menu-item__description">프렌치 프라이, 케첩, 타르타르 소스</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="알래스카 대구 & 칩스" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">알래스카 대구 & 칩스</h3>
+								<span class="menu-item__price">₩19,000</span>
+							</div>
+							<p class="menu-item__description">프렌치 프라이, 케첩, 타르타르 소스</p>
+						</div>
+					</div>
+
+					<div class="menu-item scroll-animate">
+						<div class="menu-item__image">
+							<img src="/assets/images/home/ocean-hero.jpg" alt="마카다미아 크러스트 넙치" />
+							<div class="menu-item__image-overlay"></div>
+						</div>
+						<div class="menu-item__content">
+							<div class="menu-item__header">
+								<h3 class="menu-item__name">마카다미아 크러스트 넙치</h3>
+								<span class="menu-item__price">₩48,000</span>
+							</div>
+							<p class="menu-item__description">으깬 핑거링 감자, 물냉이, 캐러멜라이즈드 양파, 파인 에르브, 크렘 프레시 버터</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Notice Section -->
+			<div class="menu-notice">
+				<p class="menu-notice__text">
+					<strong>모든 생선과 새우는 명시되지 않은 경우 야생 포획입니다.</strong>
+				</p>
+				<p class="menu-notice__text">
+					*일부 메뉴는 날 것으로 또는 덜 익혀서 제공될 수 있습니다. 날 것 또는 덜 익힌 해산물, 조개류, 또는 계란을 섭취하면 식중독 위험이 증가할 수 있습니다.
+				</p>
+				<p class="menu-notice__text">
+					우리는 영양을 공급하고 미래 식품 시스템의 무결성을 지원하는 진짜 음식을 믿고 실천합니다 - 우리 주방은 씨앗 오일을 사용하지 않습니다.
+				</p>
+			</div>
+		</section>
+	</Container>
+</Layout>
+
+<script>
+	// Scroll animation with Intersection Observer
+	const observerOptions = {
+		threshold: 0.1,
+		rootMargin: '0px 0px -50px 0px'
+	};
+
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add('animate-in');
+			}
+		});
+	}, observerOptions);
+
+	// Observe all elements with scroll-animate class
+	document.addEventListener('DOMContentLoaded', () => {
+		const animateElements = document.querySelectorAll('.scroll-animate');
+		animateElements.forEach((el) => observer.observe(el));
+	});
+</script>
+
+<style>
+	/* Scroll Animation Styles */
+	.scroll-animate {
+		opacity: 0;
+		transform: translateY(30px);
+		transition: opacity 0.6s ease, transform 0.6s ease;
+	}
+
+	.scroll-animate.animate-in {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	/* Stagger animation delays for items */
+	.menu-item.scroll-animate:nth-child(1) { transition-delay: 0.1s; }
+	.menu-item.scroll-animate:nth-child(2) { transition-delay: 0.2s; }
+	.menu-item.scroll-animate:nth-child(3) { transition-delay: 0.3s; }
+	.menu-item.scroll-animate:nth-child(4) { transition-delay: 0.4s; }
+	.menu-item.scroll-animate:nth-child(5) { transition-delay: 0.5s; }
+	.menu-item.scroll-animate:nth-child(6) { transition-delay: 0.6s; }
+
+	.menu-page {
+		margin: calc(var(--section-margin) * 2) auto;
+		padding: 2rem 0;
+		max-width: 1200px;
+	}
+
+	.menu-page__title {
+		font-size: clamp(2.5rem, 5vw, 4rem);
+		font-weight: 700;
+		text-align: center;
+		margin-bottom: 4rem;
+		color: var(--theme-on-bg);
+	}
+
+	.menu-category {
+		margin-bottom: 4rem;
+	}
+	
+	.menu-category__title {
+		font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+		font-weight: 700;
+		margin-bottom: 2rem;
+		color: var(--theme-on-bg);
+		padding-bottom: 0.75rem;
+		border-bottom: 3px solid var(--theme-primary);
+	}
+	
+	.menu-items {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+		gap: 2rem;
+	}
+	
+	.menu-item {
+		display: flex;
+		flex-direction: column;
+		background-color: var(--theme-bg);
+		border-radius: var(--theme-shape-radius);
+		transition: all var(--theme-transition);
+		overflow: hidden;
+		position: relative;
+		border: 1px solid var(--theme-surface-1);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+	}
+	
+	.menu-item:hover {
+		transform: translateY(-6px);
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+		border-color: var(--theme-primary);
+	}
+	
+	.menu-item__image {
+		position: relative;
+		width: 100%;
+		height: 200px;
+		overflow: hidden;
+		background: linear-gradient(135deg, var(--theme-surface-2) 0%, var(--theme-primary) 100%);
+	}
+	
+	.menu-item__image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.6s ease;
+	}
+	
+	.menu-item:hover .menu-item__image img {
+		transform: scale(1.08);
+	}
+	
+	.menu-item__image-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(
+			to bottom,
+			rgba(0, 0, 0, 0) 0%,
+			rgba(0, 0, 0, 0.2) 100%
+		);
+		opacity: 0;
+		transition: opacity var(--theme-transition);
+	}
+	
+	.menu-item:hover .menu-item__image-overlay {
+		opacity: 1;
+	}
+	
+	.menu-item__content {
+		padding: 1.5rem;
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+	}
+	
+	.menu-item__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		margin-bottom: 0.75rem;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+	
+	.menu-item__name {
+		font-size: 1.2rem;
+		font-weight: 600;
+		color: var(--theme-on-bg);
+		margin: 0;
+		flex: 1;
+		line-height: 1.3;
+	}
+	
+	.menu-item__price {
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--theme-primary);
+		white-space: nowrap;
+	}
+	
+	.menu-item__description {
+		font-size: 0.9rem;
+		line-height: 1.6;
+		color: var(--theme-on-bg);
+		opacity: 0.7;
+		margin: 0;
+		margin-top: auto;
+		padding-top: 0.75rem;
+	}
+	
+	.menu-item__description strong {
+		font-weight: 600;
+		color: var(--theme-on-bg);
+		opacity: 1;
+	}
+	
+	.menu-notice {
+		margin-top: 4rem;
+		padding: 2rem;
+		background-color: var(--theme-surface-1);
+		border-radius: var(--theme-shape-radius);
+	}
+	
+	.menu-notice__text {
+		font-size: 0.9rem;
+		line-height: 1.7;
+		color: var(--theme-on-surface-1);
+		margin-bottom: 1rem;
+	}
+	
+	.menu-notice__text:last-child {
+		margin-bottom: 0;
+	}
+	
+	.menu-notice__text strong {
+		font-weight: 600;
+	}
+	
+	@media (max-width: 768px) {
+		.menu-page {
+			padding: 1rem 0;
+		}
+		
+		.menu-items {
+			grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+			gap: 1.5rem;
+		}
+		
+		.menu-item__image {
+			height: 180px;
+		}
+		
+		.menu-item__content {
+			padding: 1.25rem;
+		}
+		
+		.menu-item__header {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.5rem;
+		}
+		
+		.menu-item__price {
+			align-self: flex-start;
+		}
+		
+		.menu-notice {
+			padding: 1.5rem;
+		}
+	}
+	
+	@media (max-width: 480px) {
+		.menu-items {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
+

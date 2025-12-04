@@ -6,7 +6,7 @@ const { navData, rightMenu } = Astro.props;
 <script type="module">
   const bodyElement = document.querySelector('body');
   const menuButton = document.querySelector('#menuButton')
-  const navHeader = document.querySelector('#odysseyNavHeader');
+  const navHeader = document.querySelector('#navHeader');
   const menuButtonIconHam = document.querySelector('#menuButtonIconHam');
   const menuButtonIconClose = document.querySelector('#menuButtonIconClose');
   let scrollPosition = 0;
@@ -16,7 +16,7 @@ const { navData, rightMenu } = Astro.props;
   function toggleMenu() {
     menuButtonIconHam.toggleAttribute('hidden');
     menuButtonIconClose.toggleAttribute('hidden');
-    
+
     if (navHeader.hasAttribute('mobile-menu-open', true)) {
       menuButton.title = "Open Main Menu"
       // unlock scroll position
@@ -34,12 +34,12 @@ const { navData, rightMenu } = Astro.props;
       bodyElement.style.top = `-${scrollPosition}px`;
       bodyElement.style.width = '100%';
     }
-    
+
     navHeader.toggleAttribute('mobile-menu-open');
   }
-</script>  
+</script>
 
-<header id="odysseyNavHeader" class={`${rightMenu ? "header--right" : ``.trim()}`}>
+<header id="navHeader" class={`${rightMenu ? "header--right" : ``.trim()}`}>
   <div class="header-logo-menu__container">
   <button id="menuButton" title="Open Main Menu">
     <span id="menuButtonIconHam">
