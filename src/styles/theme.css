@@ -1,0 +1,42 @@
+:root {
+	/* Theme Colors - Dark Elegant Style (Clear, No Opacity) */
+	--theme-primary: #ffffff;
+	--theme-primary-hover: #cccccc;
+	--theme-on-primary: #000000;
+
+	--theme-bg: #0a0a0a;
+	--theme-on-bg: #ffffff;
+
+	--theme-surface-1: #141414;
+	--theme-on-surface-1: #ffffff;
+
+	--theme-surface-2: #1a1a1a;
+	--theme-on-surface-2: #ffffff;
+
+	/* Secondary text colors (without opacity) */
+	--theme-text-secondary: #b0b0b0;
+	--theme-text-tertiary: #808080;
+
+	/* Theme Shapes */
+	/* Set this to 0 if you want all of the rounded cards, images, etc to be straight edges */
+	--theme-shape-radius: clamp(1rem, 2rem, 3rem);
+	--theme-button-border-radius: 3rem;
+
+	/* Theme Transition */
+	--theme-transition: 0.2s ease-in-out;
+
+	/* Theme Layout - Seline Style (More Spacious) */
+	--section-margin: 6rem;
+	--theme-grid-gap: 2rem;
+	--container-max-width: 1400px;
+	--container-max-width-narrow: 900px;
+	--container-padding: 0 2rem;
+
+	--theme-blog-post-header-width: 1200px;
+
+	/* Theme Fonts */
+	--theme-font-family-serif: 'Noto Sans KR', 'Roboto Serif', Georgia, Cambria, 'Times New Roman',
+		Times, serif;
+	--theme-font-family-sans: 'Noto Sans KR', 'Lato', -apple-system, BlinkMacSystemFont,
+		sans-serif;
+}

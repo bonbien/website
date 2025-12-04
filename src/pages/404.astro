@@ -1,0 +1,53 @@
+---
+import { Container } from '@components/odyssey-theme';
+import Layout from '../layouts/Page.astro';
+
+const seo = {
+	title: '페이지를 찾을 수 없습니다 | Bốn Biển',
+	description: '요청하신 페이지를 찾을 수 없습니다.',
+};
+---
+
+<Layout {seo}>
+	<Container>
+		<div class="not-found">
+			<h1>404</h1>
+			<p>페이지를 찾을 수 없습니다</p>
+			<a href="/">홈으로 돌아가기</a>
+		</div>
+	</Container>
+</Layout>
+
+<style>
+	.not-found {
+		text-align: center;
+		padding: 8rem 2rem;
+	}
+
+	.not-found h1 {
+		font-size: 6rem;
+		font-weight: 300;
+		margin-bottom: 1rem;
+		color: var(--theme-on-bg);
+	}
+
+	.not-found p {
+		font-size: 1.2rem;
+		color: var(--theme-text-secondary);
+		margin-bottom: 2rem;
+	}
+
+	.not-found a {
+		display: inline-block;
+		padding: 1rem 2rem;
+		color: #000;
+		background: #fff;
+		border-radius: 50px;
+		text-decoration: none;
+		transition: opacity 0.2s ease;
+	}
+
+	.not-found a:hover {
+		opacity: 0.8;
+	}
+</style>

@@ -1,0 +1,57 @@
+---
+import { languages } from '../i18n/ui';
+import { getLangFromUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+---
+
+<div class="language-switcher">
+	{Object.entries(languages).map(([code, name]) => (
+		<a
+			href={code === 'en' ? '/' : `/${code}`}
+			class={`lang-link ${lang === code ? 'active' : ''}`}
+			aria-label={`Switch to ${name}`}
+			data-lang-switch
+		>
+			{code.toUpperCase()}
+		</a>
+	))}
+</div>
+
+<script>
+	// 사용자가 수동으로 언어를 선택하면 자동 리다이렉션 비활성화
+	document.querySelectorAll('[data-lang-switch]').forEach(link => {
+		link.addEventListener('click', () => {
+			sessionStorage.setItem('langRedirected', 'true');
+		});
+	});
+</script>
+
+<style>
+	.language-switcher {
+		display: flex;
+		gap: 0.5rem;
+		align-items: center;
+	}
+
+	.lang-link {
+		padding: 0.5rem 0.75rem;
+		font-size: 0.85rem;
+		font-weight: 400;
+		letter-spacing: 0.05em;
+		text-decoration: none;
+		color: var(--theme-on-bg);
+		opacity: 0.5;
+		transition: opacity 0.2s ease;
+		text-transform: uppercase;
+	}
+
+	.lang-link:hover {
+		opacity: 0.8;
+	}
+
+	.lang-link.active {
+		opacity: 1;
+		border-bottom: 1px solid var(--theme-on-bg);
+	}
+</style>
