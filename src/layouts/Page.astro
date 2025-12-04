@@ -1,0 +1,47 @@
+---
+import { Header, Button, Footer } from '@components/odyssey-theme';
+import Layout from './Base.astro';
+import type { Props as BaseHeadProps } from '../components/head/BaseHead.astro';
+import Logo from '../components/Logo.astro';
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+import settings from '../config/settings';
+import { getFooterLists, footerSocials, businessInfo } from '../config/footer';
+import { getLangFromUrl } from '../i18n/utils';
+
+export interface Props {
+	seo?: BaseHeadProps;
+}
+
+import { getNav } from '../config/nav.js';
+
+const { seo } = Astro.props as Props;
+const lang = getLangFromUrl(Astro.url);
+const nav = getNav(lang);
+const footerLists = getFooterLists(lang);
+---
+
+<Layout seo={seo}>
+	<Header rightMenu navData={nav} slot="header">
+		<span slot="logo">
+			<Logo />
+		</span>
+		<span slot="action-item">
+			<LanguageSwitcher />
+		</span>
+	</Header>
+	<div id="page">
+		<slot />
+	</div>
+	<Footer
+		slot="footer"
+		background="var(--theme-surface-1)"
+		color="var(--theme-on-surface-1)"
+		footerLists={footerLists}
+    footerSocials={footerSocials}
+    businessInfo={businessInfo}
+		copyrightName={settings.name}
+    showPlug={settings.showPlug}
+	>
+		<Logo slot="logo" />
+	</Footer>
+</Layout>

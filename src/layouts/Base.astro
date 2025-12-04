@@ -1,0 +1,94 @@
+---
+import { SkipLink } from '@components/odyssey-theme';
+import BaseHead from '../components/head/BaseHead.astro';
+import type { Props as BaseHeadProps } from '../components/head/BaseHead.astro';
+import { getLangFromUrl } from '../i18n/utils';
+
+export interface Props {
+	seo?: BaseHeadProps;
+}
+
+const { seo } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const langMap = {
+	ko: 'ko',
+	en: 'en',
+	vi: 'vi',
+	ru: 'ru'
+};
+---
+
+<html lang={langMap[lang]}>
+	<head>
+		<BaseHead {...seo} />
+	</head>
+	<body>
+		<SkipLink />
+    <slot name="announcement-bar" />
+		<slot name="header" />
+		<main id="content">
+			<slot />
+		</main>
+		<slot name="footer" />
+
+		<!-- Kakao Chat Floating Button -->
+		<button
+			class="kakao-float-btn"
+			aria-label="KakaoTalk Chat"
+			onclick="window.open('https://pf.kakao.com/_xeKPQn/chat', 'kakao_chat', 'width=400,height=600')"
+		>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="2 3 18 15.5" fill="#3C1E1E">
+				<path d="M12 3C6.477 3 2 6.477 2 10.5c0 2.47 1.607 4.647 4.035 5.906-.136.503-.44 1.818-.503 2.101-.08.353.13.348.273.253.112-.074 1.79-1.194 2.52-1.68.545.082 1.108.125 1.675.125 5.523 0 10-3.477 10-7.705C20 6.477 17.523 3 12 3z"/>
+			</svg>
+		</button>
+
+		<style>
+			.kakao-float-btn {
+				position: fixed;
+				bottom: 24px;
+				right: 24px;
+				width: 56px;
+				height: 56px;
+				background-color: rgb(255, 239, 0);
+				border-radius: 50%;
+				border: none;
+				cursor: pointer;
+				display: grid;
+				place-items: center;
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+				transition: transform 0.2s ease, box-shadow 0.2s ease;
+				z-index: 9999;
+				padding: 0;
+			}
+
+			.kakao-float-btn svg {
+				width: 28px;
+				height: 28px;
+				display: block;
+			}
+
+			.kakao-float-btn:hover {
+				transform: scale(1.1);
+				box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+			}
+
+			.kakao-float-btn:active {
+				transform: scale(0.95);
+			}
+
+			@media (max-width: 768px) {
+				.kakao-float-btn {
+					bottom: 16px;
+					right: 16px;
+					width: 50px;
+					height: 50px;
+				}
+
+				.kakao-float-btn svg {
+					width: 24px;
+					height: 24px;
+				}
+			}
+		</style>
+	</body>
+</html>

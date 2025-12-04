@@ -1,0 +1,937 @@
+---
+import { Container } from '@components/odyssey-theme';
+import Layout from '../../layouts/Page.astro';
+import { useTranslations } from '../../i18n/utils';
+import { languages } from '../../i18n/ui';
+
+export function getStaticPaths() {
+	return [
+		{ params: { lang: undefined }, props: { lang: 'en' } },  // /
+		{ params: { lang: 'ko' }, props: { lang: 'ko' } },       // /ko/
+		{ params: { lang: 'vi' }, props: { lang: 'vi' } },       // /vi/
+		{ params: { lang: 'ru' }, props: { lang: 'ru' } },       // /ru/
+	];
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const seo = {
+	title: t('seo.title'),
+	description: t('seo.description'),
+};
+
+// 언어별 카카오톡 버튼 텍스트
+const kakaoText = {
+	en: 'KakaoTalk Inquiry',
+	ko: '카카오톡 문의하기',
+	vi: 'Liên hệ KakaoTalk',
+	ru: 'Связаться в KakaoTalk',
+};
+
+const TOTAL_IMAGES = 26;
+---
+
+<Layout seo={seo}>
+	<!-- Hero Section -->
+	<section class="hero">
+		<div class="hero__bg">
+			<img src="/assets/images/gallery/1.webp" alt="Bốn Biển" />
+		</div>
+		<div class="hero__content">
+			<img src="/logo.svg" alt="Bốn Biển" class="hero__logo" />
+			<p class="hero__subtitle">{t('hero.subtitle')}</p>
+			<button
+				class="kakao-cta-btn"
+				onclick="window.open('https://pf.kakao.com/_xeKPQn/chat', 'kakao_chat', 'width=400,height=600')"
+			>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="2 3 18 15.5" fill="#3C1E1E" width="20" height="20">
+					<path d="M12 3C6.477 3 2 6.477 2 10.5c0 2.47 1.607 4.647 4.035 5.906-.136.503-.44 1.818-.503 2.101-.08.353.13.348.273.253.112-.074 1.79-1.194 2.52-1.68.545.082 1.108.125 1.675.125 5.523 0 10-3.477 10-7.705C20 6.477 17.523 3 12 3z"/>
+				</svg>
+				<span>{kakaoText[lang]}</span>
+			</button>
+		</div>
+		<div class="event-banner">
+			<span class="event-banner__label">🧧 TẾT 2026 (2/15~2/22)</span>
+			<span class="event-banner__text">{t('event.tet')}</span>
+			<div class="event-banner__items">
+				<span class="event-banner__text">{t('event.pickup')}</span>
+				<span class="event-banner__divider">·</span>
+				<span class="event-banner__text">{t('event.review')}</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- Gallery -->
+	<section class="gallery">
+		<Container>
+			<div class="gallery__grid" id="gallery-grid">
+				{[1,2,3,4,5,6,7,8].map((n) => (
+					<div class="gallery__item">
+						<img src={`/assets/images/gallery/${n}.webp`} alt="Gallery" loading="lazy" />
+					</div>
+				))}
+			</div>
+		</Container>
+	</section>
+
+	<!-- Lightbox -->
+	<div class="lightbox" id="lightbox">
+		<img src="" alt="Gallery" class="lightbox__image" id="lightbox-image" />
+	</div>
+
+	<!-- About + Features -->
+	<section id="about" class="about">
+		<Container>
+			<div class="about__content scroll-animate">
+				<h2 class="section-title center">{t('about.title')}</h2>
+				<p class="about__text">{t('about.text1')}</p>
+			</div>
+			<div class="features__grid">
+				<div class="feature scroll-animate">
+					<h3 class="feature__title">{t('feature.traditional')}</h3>
+					<p class="feature__desc">{t('feature.traditional.desc')}</p>
+				</div>
+				<div class="feature scroll-animate">
+					<h3 class="feature__title">{t('feature.view')}</h3>
+					<p class="feature__desc">{t('feature.view.desc')}</p>
+				</div>
+			</div>
+		</Container>
+	</section>
+
+	<!-- Menu Showcase -->
+	<section class="menu">
+		<Container>
+			<h2 class="section-title center scroll-animate">{t('menu.title')}</h2>
+
+			<div class="menu__item scroll-animate">
+				<div class="menu__image">
+					<img src="/menu/lobster-golden-sauce.jpg" alt={t('menu.lobster')} />
+				</div>
+				<div class="menu__info">
+					<h3 class="menu__name">{t('menu.lobster')}</h3>
+					<p class="menu__description">{t('menu.lobster.desc')}</p>
+				</div>
+			</div>
+
+			<div class="menu__item menu__item--reverse scroll-animate">
+				<div class="menu__image">
+					<img src="/menu/crab-chili-sauce.jpg" alt={t('menu.crab')} />
+				</div>
+				<div class="menu__info">
+					<h3 class="menu__name">{t('menu.crab')}</h3>
+					<p class="menu__description">{t('menu.crab.desc')}</p>
+				</div>
+			</div>
+
+			<div class="menu__item scroll-animate">
+				<div class="menu__image">
+					<img src="/menu/shrimp-garlic-butter.jpg" alt={t('menu.shrimp')} />
+				</div>
+				<div class="menu__info">
+					<h3 class="menu__name">{t('menu.shrimp')}</h3>
+					<p class="menu__description">{t('menu.shrimp.desc')}</p>
+				</div>
+			</div>
+
+			<div class="menu__item menu__item--reverse scroll-animate">
+				<div class="menu__image">
+					<img src="/menu/geoduck-scallion-oil.jpg" alt={t('menu.geoduck')} />
+				</div>
+				<div class="menu__info">
+					<h3 class="menu__name">{t('menu.geoduck')}</h3>
+					<p class="menu__description">{t('menu.geoduck.desc')}</p>
+				</div>
+			</div>
+
+			<div class="menu__item scroll-animate">
+				<div class="menu__image">
+					<img src="/menu/squid-grilled.jpg" alt={t('menu.squid')} />
+				</div>
+				<div class="menu__info">
+					<h3 class="menu__name">{t('menu.squid')}</h3>
+					<p class="menu__description">{t('menu.squid.desc')}</p>
+				</div>
+			</div>
+
+			<div class="menu__cta scroll-animate">
+				<a href="/menu.pdf" target="_blank" class="button">{t('menu.view')}</a>
+				<a href="/lunch-menu.pdf" target="_blank" class="button button--secondary">{t('menu.lunch')}</a>
+			</div>
+		</Container>
+	</section>
+
+	<!-- Location -->
+	<section id="contact" class="location">
+		<Container>
+			<div class="location__details scroll-animate">
+				<div class="detail">
+					<h3 class="detail__label">{t('location.address')}</h3>
+					<p class="detail__value">{t('location.address.value')}</p>
+				</div>
+
+				<div class="detail">
+					<h3 class="detail__label">{t('location.hours')}</h3>
+					<p class="detail__value">{t('location.hours.weekdays')}</p>
+					<p class="detail__value">{t('location.hours.closed')}</p>
+				</div>
+
+				<div class="detail">
+					<h3 class="detail__label">{t('location.contact')}</h3>
+					<p class="detail__value"><a href={`tel:${t('location.contact.value')}`}>{t('location.contact.value')}</a></p>
+				</div>
+			</div>
+		</Container>
+	</section>
+</Layout>
+
+<script is:inline define:vars={{ lang, TOTAL_IMAGES }}>
+	// Language-based redirection (only on root page)
+	if (!lang || lang === 'en') {
+		(function() {
+			if (sessionStorage.getItem('langRedirected')) return;
+
+			const browserLang = navigator.language || navigator.languages?.[0] || '';
+			const langCode = browserLang.toLowerCase().split('-')[0];
+
+			let redirectPath = null;
+
+			if (langCode === 'ko') {
+				redirectPath = '/ko/';
+			} else if (langCode === 'ru') {
+				redirectPath = '/ru/';
+			} else if (langCode === 'vi') {
+				redirectPath = '/vi/';
+			}
+
+			if (redirectPath) {
+				sessionStorage.setItem('langRedirected', 'true');
+				window.location.replace(redirectPath);
+			} else {
+				sessionStorage.setItem('langRedirected', 'true');
+			}
+		})();
+	}
+
+	// Scroll animation
+	const observerOptions = {
+		threshold: 0.05,
+		rootMargin: '50px 0px 0px 0px'
+	};
+
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add('animate-in');
+			}
+		});
+	}, observerOptions);
+
+	const animateElements = document.querySelectorAll('.scroll-animate');
+	animateElements.forEach((el) => observer.observe(el));
+
+	// Gallery random rotation
+	const VISIBLE_COUNT = 8;
+	const ROTATE_INTERVAL = 4000;
+
+	let currentImages = [1, 2, 3, 4, 5, 6, 7, 8];
+
+	function getRandomImage(exclude) {
+		let num;
+		do {
+			num = Math.floor(Math.random() * TOTAL_IMAGES) + 1;
+		} while (exclude.includes(num));
+		return num;
+	}
+
+	function rotateGalleryImage() {
+		const grid = document.getElementById('gallery-grid');
+		if (!grid) return;
+
+		const items = grid.querySelectorAll('.gallery__item');
+		const randomIndex = Math.floor(Math.random() * VISIBLE_COUNT);
+		const item = items[randomIndex];
+		const img = item.querySelector('img');
+
+		const newImageNum = getRandomImage(currentImages);
+		const newSrc = `/assets/images/gallery/${newImageNum}.webp`;
+
+		// Preload image
+		const preload = new Image();
+		preload.src = newSrc;
+		preload.onload = () => {
+			item.classList.add('fade-out');
+			setTimeout(() => {
+				img.src = newSrc;
+				currentImages[randomIndex] = newImageNum;
+				item.classList.remove('fade-out');
+			}, 500);
+		};
+	}
+
+	setInterval(rotateGalleryImage, ROTATE_INTERVAL);
+
+	// Lightbox
+	const lightbox = document.getElementById('lightbox');
+	const lightboxImage = document.getElementById('lightbox-image');
+	const galleryItems = document.querySelectorAll('.gallery__item img');
+
+	function openLightbox(src) {
+		lightboxImage.src = src;
+		lightbox.classList.add('active');
+		document.body.style.overflow = 'hidden';
+		history.pushState({ lightbox: true }, '', '#gallery');
+	}
+
+	function closeLightbox() {
+		lightbox.classList.remove('active');
+		document.body.style.overflow = '';
+	}
+
+	galleryItems.forEach((img) => {
+		img.addEventListener('click', () => openLightbox(img.src));
+	});
+
+	lightbox.addEventListener('click', () => {
+		history.back();
+	});
+
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+			history.back();
+		}
+	});
+
+	window.addEventListener('popstate', () => {
+		if (lightbox.classList.contains('active')) {
+			closeLightbox();
+		}
+	});
+
+</script>
+
+<style>
+	/* Scroll Animation */
+	.scroll-animate {
+		opacity: 1;
+		transform: translateY(0);
+		transition: opacity 0.8s ease, transform 0.8s ease;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		.scroll-animate {
+			opacity: 0;
+			transform: translateY(30px);
+		}
+
+		.scroll-animate.animate-in {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.feature.scroll-animate:nth-child(1) { transition-delay: 0.1s; }
+	.feature.scroll-animate:nth-child(2) { transition-delay: 0.2s; }
+	.feature.scroll-animate:nth-child(3) { transition-delay: 0.3s; }
+
+	/* Hero Section */
+	.hero {
+		height: 100vh;
+		min-height: 700px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		padding: 0 2rem;
+		overflow: hidden;
+	}
+
+	.hero__bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+	}
+
+	.hero__bg img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		filter: brightness(0.4);
+	}
+
+	.hero__bg::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.7) 100%);
+	}
+
+	.hero__content {
+		text-align: center;
+		max-width: 1000px;
+		position: relative;
+		z-index: 1;
+	}
+
+	.hero__logo {
+		display: block;
+		height: clamp(50px, 8vw, 85px);
+		width: auto;
+		margin: 0 auto 0.75rem;
+	}
+
+	.hero__subtitle {
+		font-size: clamp(1.1rem, 2vw, 1.5rem);
+		font-weight: 300;
+		letter-spacing: 0.03em;
+		line-height: 1.6;
+		color: var(--theme-text-secondary);
+	}
+
+	.kakao-cta-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		margin-top: 1.5rem;
+		padding: 0.6rem 1.2rem;
+		background-color: rgb(255, 239, 0);
+		border: none;
+		border-radius: 24px;
+		cursor: pointer;
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: #3C1E1E;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+		white-space: nowrap;
+	}
+
+	.kakao-cta-btn:hover {
+		transform: scale(1.05);
+		box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+	}
+
+	.kakao-cta-btn:active {
+		transform: scale(0.98);
+	}
+
+	.kakao-cta-btn svg {
+		flex-shrink: 0;
+	}
+
+	/* Event Banner */
+	.event-banner {
+		position: absolute;
+		bottom: 2rem;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 10;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.event-banner__label {
+		font-size: 0.6rem;
+		font-weight: 500;
+		color: #ffffff;
+		letter-spacing: 0.15em;
+		padding: 0.25rem 0.75rem;
+		border: 1px solid rgba(255, 255, 255, 0.5);
+		border-radius: 2px;
+	}
+
+
+	.event-banner__items {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+	}
+
+	.event-banner__group {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0;
+	}
+
+	.event-banner__text {
+		font-size: 0.85rem;
+		font-weight: 500;
+		color: #ffffff;
+		letter-spacing: 0.02em;
+	}
+
+	.event-banner__subtext {
+		font-size: 0.7rem;
+		font-weight: 400;
+		color: rgba(255, 255, 255, 0.7);
+		letter-spacing: 0.01em;
+		margin-top: -0.1rem;
+	}
+
+	.event-banner__divider {
+		color: rgba(255, 255, 255, 0.4);
+		font-size: 0.75rem;
+	}
+
+	@media (max-width: 640px) {
+		.event-banner {
+			bottom: 1.5rem;
+			gap: 0.4rem;
+			width: 90%;
+		}
+
+		.event-banner__label {
+			font-size: 0.55rem;
+		}
+
+		.event-banner__items {
+			flex-direction: column;
+			gap: 0.25rem;
+			width: 100%;
+			text-align: center;
+		}
+
+		.event-banner__divider {
+			display: none;
+		}
+
+		.event-banner__text {
+			font-size: 0.7rem;
+			font-weight: 500;
+		}
+
+		.event-banner__subtext {
+			font-size: 0.6rem;
+		}
+	}
+
+	/* Section Title */
+	.section-title {
+		font-size: clamp(1.6rem, 2.5vw, 2.25rem);
+		font-weight: 400;
+		letter-spacing: 0.01em;
+		line-height: 1.2;
+		margin-bottom: 2rem;
+		color: var(--theme-on-bg);
+	}
+
+	.section-title.center {
+		text-align: center;
+	}
+
+	/* About Section */
+	.about {
+		padding: 6rem 0;
+		background: var(--theme-bg);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.about__content {
+		max-width: 800px;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.about__text {
+		max-width: 700px;
+		margin: 0 auto 1rem;
+		font-size: clamp(0.9rem, 1.1vw, 1rem);
+		line-height: 1.8;
+		font-weight: 300;
+		letter-spacing: 0.02em;
+		color: var(--theme-text-secondary);
+		text-align: center;
+	}
+
+	.about .features__grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 3rem;
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.feature {
+		text-align: left;
+	}
+
+	.feature__title {
+		font-size: 0.8rem;
+		font-weight: 500;
+		margin-bottom: 0.75rem;
+		letter-spacing: 0.15em;
+		color: var(--theme-on-bg);
+		text-transform: uppercase;
+	}
+
+	.feature__desc {
+		font-size: clamp(0.9rem, 1.2vw, 1rem);
+		line-height: 1.7;
+		font-weight: 300;
+		letter-spacing: 0.02em;
+		color: var(--theme-text-secondary);
+	}
+
+	/* Menu Section */
+	.menu {
+		padding: 6rem 0;
+		background: var(--theme-surface-1);
+	}
+
+	.menu__item {
+		display: grid;
+		grid-template-columns: auto auto;
+		gap: 1.5rem;
+		margin-bottom: -3rem;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.menu__item--reverse {
+		direction: rtl;
+	}
+
+	.menu__item--reverse > * {
+		direction: ltr;
+	}
+
+	.menu__image {
+		width: 240px;
+		height: 240px;
+		overflow: hidden;
+		border-radius: 50%;
+	}
+
+	.menu__image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		filter: brightness(0.85) saturate(1.4) contrast(1.15);
+		transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
+	}
+
+	.menu__item:hover .menu__image img {
+		filter: brightness(0.9) saturate(1.5) contrast(1.15);
+		transform: scale(1.05);
+	}
+
+	.menu__info {
+		padding: 0.5rem 0;
+		justify-self: start;
+		text-align: left;
+	}
+
+	.menu__item--reverse .menu__info {
+		justify-self: end;
+		text-align: right;
+	}
+
+	.menu__name {
+		font-size: clamp(1.2rem, 2vw, 1.5rem);
+		font-weight: 400;
+		letter-spacing: 0.01em;
+		margin-bottom: 0.5rem;
+		color: var(--theme-on-bg);
+	}
+
+	.menu__description {
+		font-size: clamp(0.875rem, 1.1vw, 0.95rem);
+		line-height: 1.6;
+		font-weight: 300;
+		letter-spacing: 0.02em;
+		color: var(--theme-text-secondary);
+	}
+
+	.menu__cta {
+		text-align: center;
+		margin-top: 4rem;
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	/* Button */
+	.button {
+		display: inline-block;
+		padding: 0.6rem 1.2rem;
+		font-size: 0.875rem;
+		font-weight: 500;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		text-decoration: none;
+		color: #000000;
+		background: #ffffff;
+		border: 1px solid #ffffff;
+		border-radius: 24px;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	.button:hover {
+		background: transparent;
+		color: #ffffff;
+		border-color: #ffffff;
+	}
+
+	.button--secondary {
+		background: transparent;
+		color: #ffffff;
+		border: 1px solid rgba(255, 255, 255, 0.5);
+	}
+
+	.button--secondary:hover {
+		background: #ffffff;
+		color: #000000;
+		border-color: #ffffff;
+	}
+
+	/* Gallery Section */
+	.gallery {
+		padding: 6rem 0;
+		background: var(--theme-surface-1);
+	}
+
+	.gallery__grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 0.75rem;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.gallery__item {
+		aspect-ratio: 4/3;
+		overflow: hidden;
+		border-radius: 8px;
+		opacity: 1;
+		transition: opacity 0.5s ease;
+	}
+
+	.gallery__item.fade-out {
+		opacity: 0;
+	}
+
+	.gallery__item img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.6s ease;
+	}
+
+	.gallery__item:hover img {
+		transform: scale(1.05);
+	}
+
+	.gallery__item img {
+		cursor: pointer;
+		-webkit-tap-highlight-color: transparent;
+		user-select: none;
+	}
+
+	/* Lightbox */
+	.lightbox {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.95);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 9999;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.3s ease, visibility 0.3s ease;
+		cursor: pointer;
+		-webkit-tap-highlight-color: transparent;
+		user-select: none;
+	}
+
+	.lightbox.active {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	.lightbox__image {
+		max-width: 90vw;
+		max-height: 90vh;
+		object-fit: contain;
+		border-radius: 4px;
+		transform: scale(0.9);
+		transition: transform 0.3s ease;
+	}
+
+	.lightbox.active .lightbox__image {
+		transform: scale(1);
+	}
+
+	/* Location Section */
+	.location {
+		padding: 4rem 0;
+		background: var(--theme-bg);
+	}
+
+	.location__details {
+		display: flex;
+		justify-content: center;
+		gap: 3rem;
+		text-align: center;
+	}
+
+	.detail {
+		flex: 1;
+		max-width: 250px;
+	}
+
+	.detail__label {
+		font-size: 0.75rem;
+		font-weight: 500;
+		letter-spacing: 0.15em;
+		text-transform: uppercase;
+		margin-bottom: 0.75rem;
+		color: var(--theme-text-tertiary);
+	}
+
+	.detail__value {
+		font-size: clamp(0.875rem, 1.2vw, 0.95rem);
+		line-height: 1.6;
+		font-weight: 300;
+		letter-spacing: 0.01em;
+		color: var(--theme-on-bg);
+		margin-bottom: 0.4rem;
+	}
+
+	.detail__value a {
+		color: var(--theme-on-bg);
+		text-decoration: none;
+		transition: opacity 0.2s ease;
+	}
+
+	.detail__value a:hover {
+		color: var(--theme-text-secondary);
+	}
+
+	/* Responsive */
+	@media (max-width: 968px) {
+		.gallery__grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.gallery {
+			padding: 4rem 0;
+		}
+
+		.hero {
+			min-height: 550px;
+		}
+
+		.event-banner__items {
+			flex-direction: column;
+			gap: 0.5rem;
+		}
+
+		.event-banner__divider {
+			display: none;
+		}
+
+		.about,
+		.menu {
+			padding: 4rem 0;
+		}
+
+		.location {
+			padding: 3rem 0;
+		}
+
+		.features {
+			padding: 3rem 0;
+		}
+
+		.menu__item,
+		.menu__item--reverse {
+			grid-template-columns: 1fr;
+			gap: 0.5rem;
+			margin-bottom: 1.5rem;
+			direction: ltr;
+			justify-items: center;
+		}
+
+		.menu__info,
+		.menu__item--reverse .menu__info {
+			justify-self: center;
+			text-align: center;
+		}
+
+		.menu__image {
+			width: 220px;
+			height: 220px;
+		}
+
+		.location__details {
+			flex-direction: column;
+			align-items: center;
+			gap: 2rem;
+		}
+
+		.detail {
+			max-width: 100%;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.gallery__grid {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 0.4rem;
+		}
+
+		.gallery {
+			padding: 3rem 0;
+		}
+
+		.hero {
+			min-height: 450px;
+		}
+
+		.about,
+		.menu {
+			padding: 3rem 0;
+		}
+
+		.location {
+			padding: 2.5rem 0;
+		}
+
+		.features {
+			padding: 2.5rem 0;
+		}
+
+		.about .features__grid {
+			grid-template-columns: 1fr;
+			gap: 0.75rem;
+		}
+
+		.section-title {
+			margin-bottom: 1.5rem;
+		}
+
+		.menu__image {
+			width: 180px;
+			height: 180px;
+		}
+
+		.menu__cta {
+			margin-top: 2.5rem;
+		}
+	}
+</style>
