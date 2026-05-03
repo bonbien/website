@@ -6,7 +6,7 @@ import Logo from '../components/Logo.astro';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import settings from '../config/settings';
 import { getFooterLists, footerSocials, businessInfo } from '../config/footer';
-import { getLangFromUrl } from '../i18n/utils';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 export interface Props {
 	seo?: BaseHeadProps;
@@ -16,11 +16,18 @@ import { getNav } from '../config/nav.js';
 
 const { seo } = Astro.props as Props;
 const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const nav = getNav(lang);
 const footerLists = getFooterLists(lang);
 ---
 
 <Layout seo={seo}>
+	<div class="announcement-bar" slot="announcement-bar">
+		<span class="announcement-bar__label">OPENING&nbsp;EVENT</span>
+		<span class="announcement-bar__item">{t('event.pickup')}</span>
+		<span class="announcement-bar__divider">·</span>
+		<span class="announcement-bar__item">{t('event.review')}</span>
+	</div>
 	<Header rightMenu navData={nav} slot="header">
 		<span slot="logo">
 			<Logo />
@@ -34,14 +41,52 @@ const footerLists = getFooterLists(lang);
 	</div>
 	<Footer
 		slot="footer"
-		background="var(--theme-surface-1)"
-		color="var(--theme-on-surface-1)"
+		background="var(--theme-bg)"
+		color="var(--theme-on-bg)"
 		footerLists={footerLists}
-    footerSocials={footerSocials}
-    businessInfo={businessInfo}
+		footerSocials={footerSocials}
+		businessInfo={businessInfo}
 		copyrightName={settings.name}
-    showPlug={settings.showPlug}
+		showPlug={settings.showPlug}
 	>
 		<Logo slot="logo" />
 	</Footer>
 </Layout>
+
+<style>
+	.announcement-bar {
+		background: #1A1A1A;
+		color: #FFFFFF;
+		font-family: var(--theme-font-family-sans);
+		font-size: 0.65rem;
+		font-weight: 400;
+		letter-spacing: 0.32em;
+		text-transform: uppercase;
+		padding: 0.55rem 1rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1.4rem;
+		flex-wrap: wrap;
+		text-align: center;
+	}
+	.announcement-bar__label {
+		color: var(--theme-accent-gold);
+		font-weight: 500;
+	}
+	.announcement-bar__divider {
+		color: rgba(255, 255, 255, 0.35);
+	}
+
+	@media (max-width: 640px) {
+		.announcement-bar {
+			gap: 0.4rem;
+			font-size: 0.55rem;
+			letter-spacing: 0.22em;
+			padding: 0.5rem 0.8rem;
+		}
+		.announcement-bar__divider {
+			display: none;
+		}
+	}
+</style>

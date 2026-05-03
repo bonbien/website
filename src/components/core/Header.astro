@@ -26,22 +26,6 @@ const { navData, rightMenu } = Astro.props;
   </div>
 </header>
 
-<script>
-  const header = document.getElementById('navHeader');
-  const scrollThreshold = 50;
-
-  function handleScroll() {
-    if (window.scrollY > scrollThreshold) {
-      header?.classList.add('scrolled');
-    } else {
-      header?.classList.remove('scrolled');
-    }
-  }
-
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll();
-</script>
-
 <style>
   header {
     width: 100%;
@@ -49,17 +33,13 @@ const { navData, rightMenu } = Astro.props;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: 0;
     z-index: 1000;
-    background: transparent;
-    transition: background-color 0.3s ease;
-  }
-  header.scrolled {
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--theme-border);
   }
   header.header--right {
     display: grid;
@@ -90,8 +70,11 @@ const { navData, rightMenu } = Astro.props;
   nav ul li a {
     text-decoration: none;
     margin-right: 1rem;
-    color: inherit;
-    opacity: 0.72;
+    color: var(--theme-on-bg);
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    opacity: 0.7;
     transition: opacity linear 150ms;
   }
   nav ul li a:hover {
