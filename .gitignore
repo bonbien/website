@@ -22,6 +22,7 @@ pnpm-debug.log*
 
 # Claude local settings
 .claude/*.local.json
+.superpowers/
 
 # PDFs and documents
 *.pdf
