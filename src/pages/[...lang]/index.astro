@@ -175,6 +175,7 @@ const TOTAL_IMAGES = 26;
 
 				<div class="detail">
 					<div class="detail__label">{t('location.hours')}</div>
+					<p class="detail__value detail__notice" data-closure-notice>{t('notice.closed')}</p>
 					<p class="detail__value">{t('location.hours.weekdays')}</p>
 					<p class="detail__value">{t('location.hours.closed')}</p>
 				</div>
@@ -734,6 +735,10 @@ const TOTAL_IMAGES = 26;
 		margin-bottom: 1.2rem;
 	}
 
+	.detail__notice {
+		font-weight: 500;
+		color: #B3261E;
+	}
 	.detail__value {
 		font-size: clamp(0.88rem, 1.1vw, 0.98rem);
 		line-height: 1.7;

@@ -22,3 +22,8 @@ pre {
 pre .language-id {
   display: none;
 }
+/* 공사 휴업 공지 토글 (src/layouts/Page.astro 의 재개장 스크립트가 .is-reopened 를 붙임) */
+html.is-reopened [data-closure-notice],
+html:not(.is-reopened) [data-closure-hidden] {
+	display: none !important;
+}

@@ -14,6 +14,8 @@ export interface Props {
 
 import { getNav } from '../config/nav.js';
 
+const CLOSURE_REOPEN_AT = '2026-11-14T00:00:00+07:00';
+
 const { seo } = Astro.props as Props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -22,11 +24,23 @@ const footerLists = getFooterLists(lang);
 ---
 
 <Layout seo={seo}>
-	<div class="announcement-bar" slot="announcement-bar">
-		<span class="announcement-bar__label">OPENING&nbsp;EVENT</span>
-		<span class="announcement-bar__item">{t('event.pickup')}</span>
-		<span class="announcement-bar__divider">·</span>
-		<span class="announcement-bar__item">{t('event.review')}</span>
+	<div slot="announcement-bar">
+		<div class="announcement-bar announcement-bar--notice" data-closure-notice>
+			<span class="announcement-bar__label">{t('notice.closed.label')}</span>
+			<span class="announcement-bar__item">{t('notice.closed')}</span>
+		</div>
+		<div class="announcement-bar" data-closure-hidden>
+			<span class="announcement-bar__label">OPENING&nbsp;EVENT</span>
+			<span class="announcement-bar__item">{t('event.pickup')}</span>
+			<span class="announcement-bar__divider">·</span>
+			<span class="announcement-bar__item">{t('event.review')}</span>
+		</div>
+		<script is:inline define:vars={{ reopenAt: CLOSURE_REOPEN_AT }}>
+			// 공사 휴업 공지: 재개장 시각(베트남 시간 11/14 00:00) 이후엔 자동으로 숨기고 이벤트 배너 복구
+			if (Date.now() >= Date.parse(reopenAt)) {
+				document.documentElement.classList.add('is-reopened');
+			}
+		</script>
 	</div>
 	<Header rightMenu navData={nav} slot="header">
 		<span slot="logo">
@@ -51,6 +65,46 @@ const footerLists = getFooterLists(lang);
 	>
 		<Logo slot="logo" />
 	</Footer>
+	<div class="closure-popup" id="closure-popup" role="dialog" aria-modal="true" aria-labelledby="closure-popup-title" data-closure-notice>
+		<div class="closure-popup__card">
+			<div class="closure-popup__eyebrow">Renewal</div>
+			<h2 class="closure-popup__title" id="closure-popup-title">{t('notice.popup.title')}</h2>
+			<div class="closure-popup__rule"></div>
+			<p class="closure-popup__text">{t('notice.popup.line1')}</p>
+			<p class="closure-popup__text">{t('notice.popup.line2')}</p>
+			<div class="closure-popup__actions">
+				<button type="button" class="closure-popup__btn closure-popup__btn--ghost" data-popup-hide-today>{t('notice.popup.hideToday')}</button>
+				<button type="button" class="closure-popup__btn" data-popup-close>{t('notice.popup.close')}</button>
+			</div>
+		</div>
+	</div>
+	<script is:inline>
+		// 휴업 팝업: '오늘 하루 보지 않기'는 베트남 날짜 기준으로 기억
+		(function () {
+			var popup = document.getElementById('closure-popup');
+			if (!popup || document.documentElement.classList.contains('is-reopened')) return;
+			var KEY = 'closurePopupHiddenOn';
+			var today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Ho_Chi_Minh' });
+			var hiddenOn = null;
+			try { hiddenOn = localStorage.getItem(KEY); } catch (e) {}
+			if (hiddenOn === today) return;
+
+			function close() {
+				popup.classList.remove('is-open');
+				document.removeEventListener('keydown', onKey);
+			}
+			function onKey(e) { if (e.key === 'Escape') close(); }
+
+			popup.classList.add('is-open');
+			document.addEventListener('keydown', onKey);
+			popup.addEventListener('click', function (e) { if (e.target === popup) close(); });
+			popup.querySelector('[data-popup-close]').addEventListener('click', close);
+			popup.querySelector('[data-popup-hide-today]').addEventListener('click', function () {
+				try { localStorage.setItem(KEY, today); } catch (e) {}
+				close();
+			});
+		})();
+	</script>
 </Layout>
 
 <style>
@@ -70,6 +124,89 @@ const footerLists = getFooterLists(lang);
 		flex-wrap: wrap;
 		text-align: center;
 	}
+	.announcement-bar--notice {
+		text-transform: none;
+		letter-spacing: 0.04em;
+		font-size: 1.05rem;
+		font-weight: 500;
+		line-height: 1.5;
+		padding: 1rem 1.25rem;
+		gap: 0.9rem;
+	}
+	.announcement-bar--notice .announcement-bar__label {
+		background: var(--theme-accent-gold);
+		color: #1A1A1A;
+		font-weight: 700;
+		padding: 0.15rem 0.6rem;
+		border-radius: 2px;
+	}
+	.closure-popup {
+		position: fixed;
+		inset: 0;
+		z-index: 1000;
+		display: none;
+		align-items: center;
+		justify-content: center;
+		padding: 1rem;
+		background: rgba(17, 17, 17, 0.6);
+		backdrop-filter: blur(3px);
+	}
+	.closure-popup.is-open {
+		display: flex;
+	}
+	.closure-popup__card {
+		width: 100%;
+		max-width: 26rem;
+		background: #FFFFFF;
+		color: #1A1A1A;
+		text-align: center;
+		padding: 2.6rem 2rem 1.8rem;
+		border-top: 4px solid var(--theme-accent-gold);
+		box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+		font-family: var(--theme-font-family-sans);
+	}
+	.closure-popup__eyebrow {
+		font-size: 0.7rem;
+		letter-spacing: 0.32em;
+		text-transform: uppercase;
+		color: var(--theme-accent-gold);
+		margin-bottom: 0.8rem;
+	}
+	.closure-popup__title {
+		font-size: 1.6rem;
+		font-weight: 600;
+		margin: 0;
+	}
+	.closure-popup__rule {
+		width: 2.5rem;
+		height: 1px;
+		background: var(--theme-accent-gold);
+		margin: 1.2rem auto;
+	}
+	.closure-popup__text {
+		font-size: 1rem;
+		line-height: 1.7;
+		margin: 0 0 0.3rem;
+	}
+	.closure-popup__actions {
+		display: flex;
+		gap: 0.6rem;
+		margin-top: 1.8rem;
+	}
+	.closure-popup__btn {
+		flex: 1;
+		padding: 0.85rem 0.5rem;
+		font-size: 0.85rem;
+		font-family: inherit;
+		background: #1A1A1A;
+		color: #FFFFFF;
+		border: 1px solid #1A1A1A;
+		cursor: pointer;
+	}
+	.closure-popup__btn--ghost {
+		background: transparent;
+		color: #1A1A1A;
+	}
 	.announcement-bar__label {
 		color: var(--theme-accent-gold);
 		font-weight: 500;
@@ -87,6 +224,11 @@ const footerLists = getFooterLists(lang);
 		}
 		.announcement-bar__divider {
 			display: none;
+		}
+		.announcement-bar--notice {
+			font-size: 0.9rem;
+			letter-spacing: 0.02em;
+			padding: 0.8rem 1rem;
 		}
 	}
 </style>
